@@ -1,21 +1,25 @@
-import { createSlice } from '@reduxjs/toolkit';
-export const contactsSlice = createSlice({
-  name: 'contacts',
-  initialState: [
+import { createReducer } from '@reduxjs/toolkit';
+import { add, remove, filtered } from 'redux/action';
+export const contactsReducer = createReducer(
+  [
     { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
     { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
     { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
   ],
-  reducers: {
-    add: (state, action) => {
+  {
+    [add]: (state, action) => {
       return [...Object.values(state), action.payload];
     },
-    remove: (state, action) => {
+    [remove]: (state, action) => {
       return Object.values(state).filter(
         contact => contact.id !== action.payload
       );
     },
+  }
+);
+export const filterReducer = createReducer('', {
+  [filtered]: (_, action) => {
+    return action.payload;
   },
 });
-export const { add, remove } = contactsSlice.actions;

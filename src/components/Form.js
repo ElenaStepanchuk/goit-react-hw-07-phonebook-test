@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import css from './Form.module.css';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { add } from '../redux/contactsSlice';
+import { add } from '../redux/action';
 const Form = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -23,7 +23,6 @@ const Form = () => {
     }
     dispatch(add({ id: nanoid(), name, number }));
   };
-
   const handleInputChange = event => {
     const { name, value } = event.currentTarget;
     switch (name) {

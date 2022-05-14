@@ -3,7 +3,7 @@ import ContactListItem from './ContactListItem';
 import css from './ContactsList.module.css';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { remove } from '../redux/contactsSlice';
+import { remove } from '../redux/action';
 const ContactsList = () => {
   const dispatch = useDispatch();
   const filter = useSelector(state => state.filter);

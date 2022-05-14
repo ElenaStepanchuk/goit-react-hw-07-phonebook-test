@@ -3,7 +3,7 @@ import css from './Filter.module.css';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import { useSelector, useDispatch } from 'react-redux';
-import { filtered } from '../redux/filterSlice';
+import { filtered } from '../redux/action';
 const Filter = () => {
   const value = useSelector(state => state.filter);
   const id = nanoid();
